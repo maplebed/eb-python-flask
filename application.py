@@ -1,6 +1,9 @@
 import flask
 import os
- 
+
+
+from rook import auto_start
+
 application = flask.Flask(__name__)
 
 # Only enable Flask debugging if an env var is set to true
@@ -20,6 +23,6 @@ def hello_world():
                                   flask_debug=application.debug,
                                   app_version=app_version,
                                   enable_cool_new_feature=enable_cool_new_feature)
- 
+
 if __name__ == '__main__':
     application.run(host='0.0.0.0')
