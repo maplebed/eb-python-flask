@@ -17,7 +17,7 @@ enable_cool_new_feature = os.environ.get('ENABLE_COOL_NEW_FEATURE') in ['true', 
 
 @application.route('/')
 def hello_world():
-    message = "Hello, world!"
+    message = "Hello, my world!"
     return flask.render_template('index.html',
                                   title=message,
                                   flask_debug=application.debug,
@@ -25,4 +25,4 @@ def hello_world():
                                   enable_cool_new_feature=enable_cool_new_feature)
 
 if __name__ == '__main__':
-    application.run(host='0.0.0.0')
+    application.run(host='0.0.0.0', port=8003)
