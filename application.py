@@ -17,7 +17,16 @@ enable_cool_new_feature = os.environ.get('ENABLE_COOL_NEW_FEATURE') in ['true', 
 
 @application.route('/')
 def hello_world():
-    message = "Hello, my world!"
+    message = "Hello, generic world!"
+    return flask.render_template('index.html',
+                                  title=message,
+                                  flask_debug=application.debug,
+                                  app_version=app_version,
+                                  enable_cool_new_feature=enable_cool_new_feature)
+
+@application.route('/hello/<name>')
+def hello_person(name):
+    message = "Hello, my "+name+" world!"
     return flask.render_template('index.html',
                                   title=message,
                                   flask_debug=application.debug,
